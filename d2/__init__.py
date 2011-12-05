@@ -1,5 +1,11 @@
 from pyramid.config import Configurator
 from d2.models.base import initializeBase
+from d2.models.comment import CommentModel
+from d2.models.guide import GuideModel
+from d2.models.guide_item import GuideItemModel
+from d2.models.hero import HeroModel
+from d2.models.item import ItemModel
+from d2.models.user import UserModel
 from d2.resources import Site
 from d2.request import D2Request
 from sqlalchemy import engine_from_config
@@ -27,6 +33,8 @@ def main(global_config, **settings):
         #Handler Action Routes
         config.add_route('guides_add', '/guides/add')
         config.add_route('guides_view', '/guides/view/{id}')
+        config.add_route('heroes_add', '/heroes/add')
+        config.add_route('items_add', '/items/add')
                           
         config.scan('d2')
         return config.make_wsgi_app()

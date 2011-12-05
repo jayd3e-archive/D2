@@ -8,6 +8,7 @@ from d2.models.comment import CommentModel
 from d2.models.hero import HeroModel
 from d2.models.item import ItemModel
 from d2.models.guide_item import GuideItemModel
+from d2.models.item_item import ItemItemModel
 from d2.models.base import initializeBase
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import engine_from_config
@@ -129,6 +130,8 @@ class TestModels(unittest.TestCase):
                                section="starting")
         session.add(guide_item)
         session.flush()
+        self.assertTrue(str(guide_item).startswith('<GuideItem'),
+                        msg="str(GuideItemModel) must start with '<GuideItem'")
         self.assertIn(guide, item.guides)
         self.assertIn(item, guide.items)
         self.assertIn(guide_item, item.guide_item)
@@ -136,5 +139,52 @@ class TestModels(unittest.TestCase):
         self.assertEqual(item, guide_item.item)
         self.assertEqual(guide, guide_item.guide)
 
+    def testItemItemModel(self):
+        session = self.Session()
 
-
+        item0 = ItemModel(id=5700,
+                          name="Sword of 1,000 Truths",
+                          description="Stan needs this item, GAWD sharon!")
+        item1 = ItemModel(id=5701,
+                          name="Butterfly Sword",
+                          description="Zidane's favorite.")
+        item2 = ItemModel(id=5702,
+                          name="Golden Gun",
+                          description="James Bond would be proud.")
+        item3 = ItemModel(id=5703,
+                          name="Bull Whip",
+                          description="Ouch!")
+        items = [item0, item1, item2, item3]
+        for item in items:
+            session.add(item)
+        
+        # First Build:
+        #    5700
+        #     |
+        #    5701
+        #
+        # Second Build:
+        #    5702
+        #     |
+        #  -------
+        #  |     |
+        # 5701  5703
+        item_item0 = ItemItemModel(build_id=5700,
+                                   require_id=5701)
+        item_item1 = ItemItemModel(build_id=5702,
+                                   require_id=5701)
+        item_item2 = ItemItemModel(build_id=5702,
+                                   require_id=5703)
+        item_items = [item_item0, item_item1, item_item2]
+        for item_item in item_items:
+            session.add(item_item)
+        
+        session.flush()
+        self.assertTrue(str(item_item0).startswith('<ItemItem'),
+                        msg="str(ItemItemModel) must start with '<ItemItem'")
+        self.assertIn(item1, item0.requires)
+        self.assertIn(item0, item1.builds)
+        self.assertIn(item1, item2.requires)
+        self.assertIn(item3, item2.requires)
+        self.assertIn(item2, item1.builds)
+        self.assertIn(item2, item3.builds)

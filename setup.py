@@ -15,7 +15,8 @@ requires = ['pyramid',
             'pyramid_debugtoolbar',
             'sqlalchemy',
             'mako',
-	    'psycopg2']
+	    'psycopg2',
+	    'WTForms']
 
 setup(name='D2',
       version='0.1dev',

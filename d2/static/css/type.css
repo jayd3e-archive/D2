@@ -1,0 +1,23 @@
+h1, div {
+	font-family: 'GoudyTrajanRegular', Tahoma;
+	font-weight: 300;
+}
+
+h1 {
+	font-size: 14px;
+	color: #FFF;
+}
+
+.create_guide a {
+	font-family: 'GoudyTrajanRegular', Palatino;
+	font-size: 24px;
+	color: #e0e4dd;
+	text-decoration: none;
+}
+
+.shop_sections li {
+	color: #5E7C88;
+	font-size: 12px;
+	text-decoration: underline;
+	cursor: pointer;
+}
