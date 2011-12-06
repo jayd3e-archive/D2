@@ -1,4 +1,4 @@
-<%inherit file="../layouts/base.mako"/>
+<%inherit file="../layouts/index_base.mako"/>
 
 <%def name="body()">
 	<div class="create_guide">

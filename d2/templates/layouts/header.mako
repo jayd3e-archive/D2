@@ -1,4 +1,7 @@
 <%def name="header(here)">
-	<a class="logo" href="/">
+	<a class="small_logo" href="/">
 	</a>
+	<div class="account">
+		Anonymous
+	</div>
 </%def>

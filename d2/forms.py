@@ -24,3 +24,8 @@ class ItemsAddForm(Form):
     description = TextAreaField('Description',
                                 [validators.Length(min=25, max=1000)],
                                 default="description")
+
+class GuidesAddForm(Form):
+    name = TextField('Name',
+                     [validators.Length(min=4, max=50)],
+                     default="Name Of Guide")

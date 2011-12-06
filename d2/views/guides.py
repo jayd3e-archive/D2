@@ -1,5 +1,6 @@
 from pyramid.view import view_config
 from d2.models.item import ItemModel
+from d2.forms import GuidesAddForm
 
 class GuideViews(object):
     def __init__(self, request):
@@ -17,6 +18,7 @@ class GuideViews(object):
     @view_config(route_name='guides_add', renderer='guides/add.mako')
     def add(self):
         db = self.db
+        request = self.request
         title = "Create Guide"
 
         basic_items = {}
@@ -38,7 +40,11 @@ class GuideViews(object):
                     upgrade_items[key].append(item)
                 else:
                     upgrade_items[key] = [item]
-
+        
+        form = GuidesAddForm(request.POST)
+        if request.method == 'POST' and form.validate():
+            return HTTPFound(location='/guides/add')
         return {'title':title,
                 'basic_items':basic_items,
-                'upgrade_items':upgrade_items}
+                'upgrade_items':upgrade_items,
+                'form':form}

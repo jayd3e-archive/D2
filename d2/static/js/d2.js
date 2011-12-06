@@ -1,8 +1,42 @@
 $(window).ready(function() {
 	$(".item").draggable({
-		revert: true
+		revert: true,
+		drag: function() {
+			$(this).css('z-index', '100');
+		},
+		stop: function() {
+			$(this).css('z-index', '0');
+		}
 	});
-	$(".guide_section").droppable();
+	$(".guide_section").droppable({
+        over: function() {
+            $(this).css('backgroundColor', '#182121');
+        },
+        out: function() {
+            $(this).css('backgroundColor', '#181818');
+        },
+        drop: function(event, ui) {
+            $(this).css('backgroundColor', '#181818');
+            item = $(ui.draggable).clone();
+            
+            // Reset the position of the item
+            item.css('top', '0');
+            item.css('left', '0');
+
+            // make the item draggable
+            item.draggable({
+				drag: function() {
+					$(this).css('z-index', '100');
+				},
+				stop: function() {
+					$(this).css('z-index', '0');
+					$(this).remove()
+				}
+			});
+
+            $(this).append(item)
+        }
+	});
 
 	var top = $('#guide').offset().top - parseFloat($('#guide').css('marginTop').replace(/auto/, 0));
 	// Set the position of the guide_section to fixed when it hit the top of the window.
