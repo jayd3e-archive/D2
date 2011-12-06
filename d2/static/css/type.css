@@ -13,6 +13,11 @@ form .guide_name {
 	color: #464646;
 }
 
+form .guide_hero_name {
+	font-size: 22px;
+	color: #464646;
+}
+
 .guide_submit {
 	color: #e0e4dd;
 	font-size: 12px;

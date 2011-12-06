@@ -16,14 +16,14 @@
         <script type="text/javascript" src="/static/js/d2.js"></script>
     </head>
     <body>
-        <div class="header">
+        <div css="header">
         	<div class="centered">
             	${header.header(here)}
 			</div>
         </div>
         <div class="body">
             <div class="centered">
-            	${self.body()}
+                ${self.body()}
             </div>
         </div>
         <div class="footer">

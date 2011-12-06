@@ -1,4 +1,4 @@
-from wtforms import Form, TextField, IntegerField, TextAreaField, validators
+from wtforms import Form, SelectField, TextField, IntegerField, TextAreaField, validators
 
 class HeroesAddForm(Form):
     name = TextField('Name',
@@ -8,7 +8,6 @@ class HeroesAddForm(Form):
                      	   [validators.Length(min=4, max=50)],
                      	   default="image name")
     description = TextAreaField('Description',
-                                [validators.Length(min=25, max=1000)],
                                 default="description")
    
 class ItemsAddForm(Form):
@@ -29,3 +28,6 @@ class GuidesAddForm(Form):
     name = TextField('Name',
                      [validators.Length(min=4, max=50)],
                      default="Name Of Guide")
+    hero_name = TextField('Hero Name',
+                          [validators.Length(min=4, max=50)],
+                          default="Hero")

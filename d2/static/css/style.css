@@ -6,7 +6,7 @@ body {
 
 .centered {
 	margin: 0 auto;
-	width: 740px;
+	width: 830px;
 }
 
 .header {
@@ -45,7 +45,13 @@ form .name, form .description, form .image_name, form .cost {
 }
 
 form .guide_name {
-	width: 625px;
+	width: 445px;
+	float: left;
+	margin-right: 12px;
+}
+
+form .guide_hero_name {
+	width: 230px;
 	float: left;
 	margin-right: 10px;
 }
@@ -95,28 +101,42 @@ form .guide_name {
 */
 
 .guide_info {
-	width: 760px;
+	width: 830px;
+	display: inline-block;
+	clear: both;
+}
+
+.top {
+	width: 830px;
 	display: block;
+}
+
+.bottom {
+	display: block;
+	position: relative;
 	clear: both;
 }
 
 .left_column {
-	width: 390px;
+	width: 475;
 	min-height: 500px;
-	padding-top: 30px;
+	padding-top: 20px;
 	float: left;
+}
+
+#guide {
+	padding-top: 10px;
 }
 
 .fixed {
 	position: fixed;
-	top: 10px;
+	top: 0;
 }
 
 .right_column {
-	width: 350px;
 	min-height: 500px;
 	padding-top: 10px;
-	float: left;
+	float: right;
 }
 
 .right_column h1 {
@@ -139,7 +159,7 @@ form .guide_name {
 .guide_section {
 	display: inline-block;
 	min-height: 69px;
-	width: 365px;
+	width: 450px;
 	background-color: #181818;
 	opacity: 0.5;
 	margin-top: 5px;
@@ -168,5 +188,24 @@ form .guide_name {
 }
 
 .item:hover {
+	cursor: pointer;
+}
+
+.hero_list {
+	padding: 5px;
+	background-color: rgba(24, 24, 24, 0.5);
+	clear: both;
+	z-index: 150;
+	margin-top: 7px;
+	display: none;
+}
+
+.hero {
+	float: left;
+	margin-top: 5px;
+	display: block;
+}
+
+.hero:hover {
 	cursor: pointer;
 }

@@ -1,5 +1,7 @@
 from pyramid.view import view_config
 from d2.models.item import ItemModel
+from d2.models.hero import HeroModel
+from d2.models.guide import GuideModel
 from d2.forms import GuidesAddForm
 
 class GuideViews(object):
@@ -20,13 +22,39 @@ class GuideViews(object):
         db = self.db
         request = self.request
         title = "Create Guide"
+        sections = ['starting', 'early', 'core', 'luxury']
 
+        heroes = db.query(HeroModel).all()
+
+        items = db.query(ItemModel).all()
+        items = self.splitItems(items)
+        
+        form = GuidesAddForm(request.POST)
+        if request.method == 'POST' and form.validate():
+            POST = request.POST
+            guide = GuideModel(name=POST['name'],
+                               created=datetime.now(),
+                               edited=datetime.now(),
+                               hero_id=['hero_id'],
+                               user_id=1)
+            for section in sections:
+                section_items = request.getall(section)
+                for section_item in section_items:
+                    pass
+        return {'title':title,
+                'basic_items':items['basic_items'],
+                'upgrade_items':items['upgrade_items'],
+                'heroes':heroes,
+                'form':form}
+    
+    def splitItems(self, items):
+        item_dict = {}
         basic_items = {}
         upgrade_items = {}
         basic_categories = ['consumables', 'attributes', 'armaments', 'arcane']
         upgrade_categories= ['common', 'support', 'caster', 'weapons', 'armor', 'artifacts']
 
-        items = db.query(ItemModel).all()
+        
         for item in items:
             if item.category in basic_categories:
                 key = item.category.capitalize()
@@ -41,10 +69,6 @@ class GuideViews(object):
                 else:
                     upgrade_items[key] = [item]
         
-        form = GuidesAddForm(request.POST)
-        if request.method == 'POST' and form.validate():
-            return HTTPFound(location='/guides/add')
-        return {'title':title,
-                'basic_items':basic_items,
-                'upgrade_items':upgrade_items,
-                'form':form}
+        item_dict['basic_items'] = basic_items
+        item_dict['upgrade_items'] = upgrade_items
+        return item_dict
