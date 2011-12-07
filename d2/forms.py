@@ -28,6 +28,6 @@ class GuidesAddForm(Form):
     name = TextField('Name',
                      [validators.Length(min=4, max=50)],
                      default="Name Of Guide")
-    hero_name = TextField('Hero Name',
-                          [validators.Length(min=4, max=50)],
-                          default="Hero")
+    hero_name = SelectField('Hero Name',
+                            [validators.required()],
+                            coerce=int)

@@ -1,23 +1,27 @@
 <%inherit file="../layouts/base.mako"/>
 
 <%def name="body()">
+    <script type="text/javascript" src="/static/js/d2.js"></script>
 	<form id="guide_form" method="POST" action="">
 		<div class="top">
 			<div class="guide_info">
 		        <div>${form.name(class_='guide_name')}</div>
-		        <div>${form.hero_name(class_='guide_hero_name')}</div>
-		        
-	            <a class="guide_submit" href="/">
+		        <div class="guide_hero_name">${form.hero_name(class_='guide_hero_name')}</div>
+	            <a class="guide_submit" id="guide_submit" href="#">
 	                Create
 	            </a>
 			</div>
-			<div class="hero_list">
-		        % for hero in heroes:
-		        	<div onclick="javascript:selectHero()" class="hero">
-		        		<img src="/static/img/heroes/${hero.image_name}"/>
-		        	</div>
-		        % endfor
-		    </div>
+			<%doc>
+				## Possibly add this back in at some point, once I have access to all of the
+				## hero images
+				<div class="hero_list">
+			        % for hero in heroes:
+			        	<div class="hero" id="${hero.name}">
+			        		<img src="/static/img/heroes/${hero.image_name}"/>
+			        	</div>
+			        % endfor
+			    </div>
+			</%doc>
 		</div>
 		<div class="bottom">
 			<div class="left_column">
@@ -42,8 +46,15 @@
 						<h1>${key}</h1>
 						<div class="items">
 							% for item in items:
-								<div class="item" id="${item.id}">
-									<img src="/static/img/items/${item.image_name}"/>
+								<div class="item_container">
+									<div class="item" id="${item.id}">
+										<img src="/static/img/items/${item.image_name}"/>
+									</div>
+									<div class="tooltip">
+					        			<div class="tipBody">
+					        				${'<br />'.join(item.description.splitlines()) | n}
+					        			</div>
+					        		</div>
 								</div>
 							% endfor
 						</div>
@@ -54,13 +65,21 @@
 						<h1>${key}</h1>
 						<div class="items">
 							% for item in items:
-								<div class="item" id="${item.id}">
-									<img src="/static/img/items/${item.image_name}"/>
+								<div class="item_container">
+									<div class="item" id="${item.id}">
+										<img src="/static/img/items/${item.image_name}"/>
+									</div>
+									<div class="tooltip">
+					        			<div class="tipBody">
+					        				${'<br />'.join(item.description.splitlines()) | n}
+					        			</div>
+					        		</div>
 								</div>
 							% endfor
 						</div>
 					</div>
 				% endfor
 			</div>
+		</div>
 	</form>
 </%def>

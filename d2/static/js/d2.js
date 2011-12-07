@@ -3,6 +3,10 @@ $(window).ready(function() {
         revert: true,
         drag: function() {
             $(this).css('z-index', '100');
+
+            // Remove tooltip
+            tooltip = $(this).parent().find(".tooltip");
+            tooltip.hide();
         },
         stop: function() {
             $(this).css('z-index', '0');
@@ -42,13 +46,51 @@ $(window).ready(function() {
         }
     });
 
-    $('#hero_name').focus(function() {
-        $('.hero_list').css('display', 'inline-block'); 
-    });
+    /*$('#hero_name').focus(function() {
+        $('.hero_list').css('display', 'inline-block');
+    });*/
+    $("#hero_name").chosen({no_results_text: "NOPE"});
 
     $('.hero').click(function() {
-        $('#hero_name').val('text');
+        hero_id = $(this).attr('id');
+        $('#hero_name').val(hero_id);
+        $('html, body').animate({ scrollTop: 0 }, 0);
         $('.hero_list').css('display', 'none'); 
+    });
+
+    $('#guide_submit').click(function() {
+        $('#guide_form').submit() 
+    });
+
+    // Tooltips
+    $('.item_container').mouseover(function(e) {
+
+        body = $(this).find('.tooltip');
+
+        //Set the X and Y axis of the tooltip
+        $(body).css('top', e.pageY + 10 );
+        $(body).css('left', e.pageX + 20 );
+         
+        //Show the tooltip
+        $(body).show();
+         
+    });
+
+    $('.item_container').mousemove(function(e) {
+     
+        body = $(this).find('.tooltip');
+
+        //Keep changing the X and Y axis for the tooltip, thus, the tooltip move along with the mouse
+        $(body).css('top', e.pageY + 10 );
+        $(body).css('left', e.pageX + 20 );
+         
+    });
+
+    $('.item_container').mouseout(function() {
+     
+        body = $(this).find('.tooltip');
+        $(body).hide();
+         
     });
 
     var top = $('#guide').offset().top - parseFloat($('#guide').css('marginTop').replace(/auto/, 0));
@@ -72,7 +114,7 @@ $(window).ready(function() {
           // otherwise remove it
           $('#guide').removeClass('fixed');
         }
-      });
+    });
 
     // Hide upgrades tab
     $(".upgrades_section").hide();

@@ -1,7 +1,10 @@
+from datetime import datetime
 from pyramid.view import view_config
-from d2.models.item import ItemModel
+from pyramid.httpexceptions import HTTPFound
 from d2.models.hero import HeroModel
+from d2.models.item import ItemModel
 from d2.models.guide import GuideModel
+from d2.models.guide_item import GuideItemModel
 from d2.forms import GuidesAddForm
 
 class GuideViews(object):
@@ -29,23 +32,56 @@ class GuideViews(object):
         items = db.query(ItemModel).all()
         items = self.splitItems(items)
         
+        hero_choices = []
         form = GuidesAddForm(request.POST)
+        for hero in heroes:
+            hero_choices.append((hero.id, hero.name))
+        form.hero_name.choices = hero_choices
         if request.method == 'POST' and form.validate():
             POST = request.POST
+
             guide = GuideModel(name=POST['name'],
                                created=datetime.now(),
                                edited=datetime.now(),
-                               hero_id=['hero_id'],
+                               hero_id=POST['hero_name'],
                                user_id=1)
+            db.add(guide)
+            db.flush()
+            guide_id = guide.id
             for section in sections:
-                section_items = request.getall(section)
-                for section_item in section_items:
-                    pass
+                section_items = POST.getall(section)
+                for item_id in section_items:
+                    guide_item = GuideItemModel(guide_id=guide_id,
+                                                item_id=item_id,
+                                                section=section)
+                    db.add(guide_item)
+            db.flush()
+            return HTTPFound('/guides/view/' + str(guide_id))
         return {'title':title,
                 'basic_items':items['basic_items'],
                 'upgrade_items':items['upgrade_items'],
-                'heroes':heroes,
                 'form':form}
+    
+    @view_config(route_name='guides_view', renderer='guides/view.mako')
+    def view(self):
+        db = self.db
+        request = self.request
+        title = "View Guide"
+        items = {}
+        
+        id = request.matchdict['id']
+        guide = db.query(GuideModel).filter_by(id=id).first()
+        for guide_item in guide.guide_item:
+            section = guide_item.section
+            if section in items:
+                items[section].append(guide_item.item)
+            else:
+                items[section] = []
+                items[section].append(guide_item.item)
+
+        return {'title':title,
+                'items':items,
+                'guide':guide}
     
     def splitItems(self, items):
         item_dict = {}

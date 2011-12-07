@@ -21,7 +21,9 @@ class ItemModel(Base):
         self.__dict__.update(fields)
 
     def __repr__(self):
-        return "<Item('%s', '%s', '%s')>" % (self.id,
-                                             self.name,
-                                             self.description,
-                                             self.image_name)
+        return "<Item('%s', '%s', '%s', '%s', '%s', '%s')>" % (self.id,
+                                                               self.name,
+                                                               self.category,
+                                                               self.cost,
+                                                               self.description,
+                                                               self.image_name)

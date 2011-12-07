@@ -3,6 +3,12 @@ h1, div {
 	font-weight: 300;
 }
 
+.chzn-single, .chzn-search, .chzn-results {
+	font-family: Lucida Grande, Arial, Tahoma;
+	font-size: 22px;
+	color: #464646;
+}
+
 h1 {
 	font-size: 14px;
 	color: #FFF;
@@ -14,8 +20,12 @@ form .guide_name {
 }
 
 form .guide_hero_name {
+	font-size: 22pt;
+}
+
+.guide_title {
 	font-size: 22px;
-	color: #464646;
+	color: #5E7C88;
 }
 
 .guide_submit {
@@ -44,4 +54,10 @@ form .guide_hero_name {
 	font-size: 12px;
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+.tooltip .tipBody {
+	font-family: Arial, Verdana, Tahoma;
+	font-size: 12px;
+	color: #829B6D;
 }

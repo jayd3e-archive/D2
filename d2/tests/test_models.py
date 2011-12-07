@@ -126,8 +126,8 @@ class TestModels(unittest.TestCase):
         session.add(guide)
 
         guide_item = GuideItemModel(guide_id=5889,
-                               item_id=5768,
-                               section="starting")
+                                    item_id=5768,
+                                    section="starting")
         session.add(guide_item)
         session.flush()
         self.assertTrue(str(guide_item).startswith('<GuideItem'),

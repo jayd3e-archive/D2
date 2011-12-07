@@ -11,6 +11,8 @@ class HeroModel(Base):
     name = Column(String(100))
     description = Column(String(400))
     image_name = Column(String(100))
+    default_filename = Column(String(100))
+    resource_name = Column(String(100))
 
     guides = relationship(GuideModel, backref="hero")
 
@@ -21,4 +23,6 @@ class HeroModel(Base):
         return "<Hero('%s', '%s', '%s', '%s')>" % (self.id,
                                                    self.name,
                                                    self.description,
-                                                   self.image_name)
+                                                   self.image_name,
+                                                   self.default_filename,
+                                                   self.resource_name)
