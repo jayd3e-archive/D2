@@ -51,6 +51,9 @@
 										<img src="/static/img/items/${item.image_name}"/>
 									</div>
 									<div class="tooltip">
+										<div class="tipHead">
+					        				${item.name}
+					        			</div>
 					        			<div class="tipBody">
 					        				${'<br />'.join(item.description.splitlines()) | n}
 					        			</div>
@@ -70,6 +73,9 @@
 										<img src="/static/img/items/${item.image_name}"/>
 									</div>
 									<div class="tooltip">
+										<div class="tipHead">
+					        				${item.name}
+					        			</div>
 					        			<div class="tipBody">
 					        				${'<br />'.join(item.description.splitlines()) | n}
 					        			</div>

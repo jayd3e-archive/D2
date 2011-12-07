@@ -212,6 +212,10 @@ form .guide_name {
 	z-index: 999;
 }
 
+.tooltip .tipHead {
+	padding-bottom: 5px;
+}
+
 .hero_list {
 	padding: 5px 0px 0px 5px;
 	background-color: rgba(24, 24, 24, 0.5);
