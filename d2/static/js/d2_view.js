@@ -1,5 +1,5 @@
 $(window).ready(function() {
-	// Tooltips
+    // Tooltips
     $('.item_container').mouseover(function(e) {
 
         body = $(this).find('.tooltip');

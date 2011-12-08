@@ -17,13 +17,13 @@
     </head>
     <body>
         <div class="header">
-        	<div class="centered">
-            	${header.header(here)}
-			</div>
+            <div class="centered">
+                ${header.header(here)}
+            </div>
         </div>
         <div class="body">
             <div class="centered">
-            	${self.body()}
+                ${self.body()}
             </div>
         </div>
         <div class="footer">

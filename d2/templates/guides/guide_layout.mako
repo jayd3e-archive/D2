@@ -9,7 +9,7 @@
     {        
         "#DOTA_Item_Build_Starting_Items"
         {
-        	% if 'starting' in items:
+            % if 'starting' in items:
             % for item in items['starting']:
             "item"        "${item.resource_name}"
             % endfor
@@ -18,7 +18,7 @@
         
         "#DOTA_Item_Build_Early_Game"
         {
-        	% if 'early' in items:
+            % if 'early' in items:
             % for item in items['early']:
             "item"        "${item.resource_name}"
             % endfor
@@ -27,7 +27,7 @@
         
         "#DOTA_Item_Build_Core_Items"
         {
-        	% if 'core' in items:
+            % if 'core' in items:
             % for item in items['core']:
             "item"        "${item.resource_name}"
             % endfor
@@ -36,7 +36,7 @@
         
         "#DOTA_Item_Build_Luxury"
         {
-        	% if 'luxury' in items:
+            % if 'luxury' in items:
             % for item in items['luxury']:
             "item"        "${item.resource_name}"
             % endfor

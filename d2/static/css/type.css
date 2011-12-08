@@ -1,81 +1,81 @@
 h1, div {
-	font-family: 'GoudyTrajanRegular', Tahoma;
-	font-weight: 300;
+    font-family: 'GoudyTrajanRegular', Tahoma;
+    font-weight: 300;
 }
 
 .chzn-single, .chzn-search, .chzn-results {
-	font-family: Lucida Grande, Arial, Tahoma;
-	font-size: 22px;
-	color: #464646;
+    font-family: Lucida Grande, Arial, Tahoma;
+    font-size: 22px;
+    color: #464646;
 }
 
 h1 {
-	font-size: 14px;
-	color: #FFF;
+    font-size: 14px;
+    color: #FFF;
 }
 
 form .guide_name {
-	font-size: 22px;
-	color: #464646;
+    font-size: 22px;
+    color: #464646;
 }
 
 form .guide_hero_name {
-	font-size: 22pt;
+    font-size: 22pt;
 }
 
 .guide_title {
-	font-size: 22px;
-	color: #5E7C88;
+    font-size: 22px;
+    color: #5E7C88;
 }
 
 .guide_submit {
-	color: #e0e4dd;
-	font-size: 12px;
-	text-decoration: none;
-	padding-top: 8px;
-	padding-left: 35px;
+    color: #e0e4dd;
+    font-size: 12px;
+    text-decoration: none;
+    padding-top: 8px;
+    padding-left: 35px;
 }
 
 .account {
-	font-family: Arial, Verdana, Tahoma;
-	font-size: 12px;
-	color: #FFF;
+    font-family: Arial, Verdana, Tahoma;
+    font-size: 12px;
+    color: #FFF;
 }
 
 .create_guide a {
-	font-family: 'GoudyTrajanRegular', Palatino;
-	font-size: 24px;
-	color: #e0e4dd;
-	text-decoration: none;
+    font-family: 'GoudyTrajanRegular', Palatino;
+    font-size: 24px;
+    color: #e0e4dd;
+    text-decoration: none;
 }
 
 .shop_sections li {
-	color: #5E7C88;
-	font-size: 12px;
-	text-decoration: underline;
-	cursor: pointer;
+    color: #5E7C88;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .tooltip .tipBody {
-	font-family: Arial, Verdana, Tahoma;
-	font-size: 12px;
-	color: #829B6D;
+    font-family: Arial, Verdana, Tahoma;
+    font-size: 12px;
+    color: #829B6D;
 }
 
 .tooltip .tipHead {
-	font-family: Arial, Verdana, Tahoma;
-	font-size: 16px;
-	color: #5E7C88;
+    font-family: Arial, Verdana, Tahoma;
+    font-size: 16px;
+    color: #5E7C88;
 }
 
 /*
 *
-*	GUIDE VIEW
+*    GUIDE VIEW
 *
 */
 
 .help {
-	color: #68493F;
-	font-size: 12px;
-	font-family: Lucida Grande, Arial, Tahoma;
+    color: #68493F;
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, Tahoma;
 }

@@ -17,9 +17,9 @@
     </head>
     <body>
         <div css="header">
-        	<div class="centered">
-            	${header.header(here)}
-			</div>
+            <div class="centered">
+                ${header.header(here)}
+            </div>
         </div>
         <div class="body">
             <div class="centered">

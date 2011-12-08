@@ -1,99 +1,99 @@
 @import url("chosen.css");
 
 body {
-	background-image: url("../img/pattern.png");
-	width: 100%;
-	height: 100%;
+    background-image: url("../img/pattern.png");
+    width: 100%;
+    height: 100%;
 }
 
 .centered {
-	margin: 0 auto;
-	width: 845px;
+    margin: 0 auto;
+    width: 845px;
 }
 
 .header {
-	width: 100%;
+    width: 100%;
 }
 
 .body {
-	padding-top: 10px;
-	clear: both;
+    padding-top: 10px;
+    clear: both;
 }
 
 .small_logo {
-	background-image: url("../img/small_logo.png");
-	width: 29px;
-	height: 17px;
-	margin-top: 10px;
-	float: left;
+    background-image: url("../img/small_logo.png");
+    width: 29px;
+    height: 17px;
+    margin-top: 10px;
+    float: left;
 }
 
 .logo {
-	background-image: url("../img/d2_logo.png");
-	display: block;
-	width: 180px;
-	height: 100px;
-	margin: 0 auto;
-	margin-top: 100px;
+    background-image: url("../img/d2_logo.png");
+    display: block;
+    width: 180px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 
 .account {
-	padding-top: 12px;
-	float: right;
+    padding-top: 12px;
+    float: right;
 }
 
 form .name, form .description, form .image_name, form .cost {
-	width: 700px;
+    width: 700px;
 }
 
 form .guide_name {
-	width: 463px;
-	float: left;
-	margin-right: 10px;
+    width: 463px;
+    float: left;
+    margin-right: 10px;
 }
 
 .guide_hero_name {
-	width: 239px;
-	float: left;
-	margin-right: 10px;
+    width: 239px;
+    float: left;
+    margin-right: 10px;
 }
 
 .guide_submit {
-	float: left;
-	width: 82px;
-	height: 19px;
-	display: block;
-	margin-top: 5px;
-	background-image: url("../img/create_submit.png");
+    float: left;
+    width: 82px;
+    height: 19px;
+    display: block;
+    margin-top: 5px;
+    background-image: url("../img/create_submit.png");
 }
 
 .guide_submit:hover {
-	background-position: right;
+    background-position: right;
 }
 
 .create_guide {
-	background-image: url("../img/create.png");
-	background-repeat: no-repeat;
-	width: 300px;
-	height: 69px;
-	border: 0;
-	outline: 0;
-	margin: 0 auto;
+    background-image: url("../img/create.png");
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 69px;
+    border: 0;
+    outline: 0;
+    margin: 0 auto;
 }
 
 .create_guide a {
-	padding-left: 50px;
-	padding-top: 22px;
-	display: block;
+    padding-left: 50px;
+    padding-top: 22px;
+    display: block;
 }
 
 .create_guide:hover {
-	cursor: pointer;
-	background-position: -300px 0px;
+    cursor: pointer;
+    background-position: -300px 0px;
 }
 
 .submit {
-	padding: 10px 25px;
+    padding: 10px 25px;
 }
 
 /*
@@ -103,157 +103,157 @@ form .guide_name {
 */
 
 .guide_info {
-	width: 845px;
-	display: inline-block;
-	clear: both;
+    width: 845px;
+    display: inline-block;
+    clear: both;
 }
 
 .top {
-	width: 845px;
-	display: block;
+    width: 845px;
+    display: block;
 }
 
 .bottom {
-	display: block;
-	clear: both;
+    display: block;
+    clear: both;
 }
 
 .left_column {
-	width: 475;
-	min-height: 500px;
-	padding-top: 20px;
-	float: left;
+    width: 475;
+    min-height: 500px;
+    padding-top: 20px;
+    float: left;
 }
 
 .left_column_view {
-	width: 475;
-	min-height: 500px;
-	padding-top: 10px;
-	float: left;
+    width: 475;
+    min-height: 500px;
+    padding-top: 10px;
+    float: left;
 }
 
 #guide {
-	padding-top: 10px;
+    padding-top: 10px;
 }
 
 .fixed {
-	position: fixed;
-	top: 0;
+    position: fixed;
+    top: 0;
 }
 
 .right_column {
-	min-height: 500px;
-	padding-top: 10px;
-	float: right;
+    min-height: 500px;
+    padding-top: 10px;
+    float: right;
 }
 
 .right_column h1 {
-	clear: both;
-	color: #829b6d;
+    clear: both;
+    color: #829b6d;
 }
 
 .right_column textarea {
-	margin-top: 5px;
-	margin-bottom: 30px;
-	width: 366px;
-	height: 669px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    width: 366px;
+    height: 669px;
 }
 
 .shop_sections {
-	clear: both;
-	display: block;
-	margin-bottom: 20px;
+    clear: both;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .shop_sections li {
-	float: left;
-	margin-right: 10px;
-	display: inline;
+    float: left;
+    margin-right: 10px;
+    display: inline;
 }
 
 .guide_section {
-	display: inline-block;
-	min-height: 69px;
-	width: 455px;
-	background-color: rgba(24, 24, 24, 0.5);
-	margin-top: 5px;
-	margin-bottom: 10px;
-	padding-bottom: 5px;
+    display: inline-block;
+    min-height: 69px;
+    width: 455px;
+    background-color: rgba(24, 24, 24, 0.5);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .left_column .guide_section {
-	display: inline-block;
-	min-height: 69px;
-	width: 455px;
-	background-color: rgba(24, 24, 24, 0.5);
-	margin-top: 5px;
-	margin-bottom: 10px;
-	padding-bottom: 5px;
+    display: inline-block;
+    min-height: 69px;
+    width: 455px;
+    background-color: rgba(24, 24, 24, 0.5);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .basics_section .items, .upgrades_section .items {
-	display: inline-block;
-	width: 365px;
-	background-color: rgba(24, 24, 24, 0.5);
-	margin-top: 5px;
-	margin-bottom: 10px;
-	padding-bottom: 5px;
-	border: 1px solid #3e1a1a;
+    display: inline-block;
+    width: 365px;
+    background-color: rgba(24, 24, 24, 0.5);
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border: 1px solid #3e1a1a;
 }
 
 .item {
-	width: 85px;
-	height: 64px;
-	margin-left: 5px;
-	margin-top: 5px;
-	float: left;
-	background-color: #5E7C88;
-	z-index: 0;
+    width: 85px;
+    height: 64px;
+    margin-left: 5px;
+    margin-top: 5px;
+    float: left;
+    background-color: #5E7C88;
+    z-index: 0;
 }
 
 .item img{
-	z-index: 0;
+    z-index: 0;
 }
 
 .item:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .tooltip {
-	padding: 10px;
-	width: 200px;
-	position: absolute;
-	display: none;
-	background-color: rgba(24, 24, 24, 0.9);
-	z-index: 999;
+    padding: 10px;
+    width: 200px;
+    position: absolute;
+    display: none;
+    background-color: rgba(24, 24, 24, 0.9);
+    z-index: 999;
 }
 
 .tooltip .tipHead {
-	padding-bottom: 5px;
+    padding-bottom: 5px;
 }
 
 .hero_list {
-	padding: 5px 0px 0px 5px;
-	background-color: rgba(24, 24, 24, 0.5);
-	clear: both;
-	z-index: 150;
-	margin-top: 7px;
-	display: none;
+    padding: 5px 0px 0px 5px;
+    background-color: rgba(24, 24, 24, 0.5);
+    clear: both;
+    z-index: 150;
+    margin-top: 7px;
+    display: none;
 }
 
 .hero {
-	float: left;
-	margin-right: 5px;
-	margin-bottom: 2px;
-	display: block;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    display: block;
 }
 
 .hero:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 /*
 *
-*	GUIDE VIEW
+*    GUIDE VIEW
 *
 */
