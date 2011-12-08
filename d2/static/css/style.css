@@ -155,6 +155,8 @@ form .guide_name {
 .right_column textarea {
 	margin-top: 5px;
 	margin-bottom: 30px;
+	width: 366px;
+	height: 669px;
 }
 
 .shop_sections {
@@ -183,8 +185,7 @@ form .guide_name {
 	display: inline-block;
 	min-height: 69px;
 	width: 455px;
-	background-color: #181818;
-	opacity: 0.5;
+	background-color: rgba(24, 24, 24, 0.5);
 	margin-top: 5px;
 	margin-bottom: 10px;
 	padding-bottom: 5px;

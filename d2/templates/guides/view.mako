@@ -49,7 +49,7 @@
     				Copy and paste this text into a file named after what appears in the first line of the config file, should look like: "default_venomancer.txt".  Then save that file in "Steam/steamapps/ common/dota 2 beta/dota/ itembuilds/".
     			</div>
   			</div>
-			<textarea cols="50" rows="51">
+			<textarea>
 ${guide_layout.guide_layout(guide, items) | trim}
             </textarea>
         </div>

@@ -15,13 +15,13 @@ $(window).ready(function() {
 
     $(".guide_section").droppable({
         over: function() {
-            $(this).css('backgroundColor', '#182121');
+            $(this).css('background-color', 'rgba(24, 33, 33, 0.5)');
         },
         out: function() {
-            $(this).css('backgroundColor', '#181818');
+            $(this).css('background-color', 'rgba(24, 24, 24, 0.5)');
         },
         drop: function(event, ui) {
-            $(this).css('backgroundColor', '#181818');
+            $(this).css('background-color', 'rgba(24, 24, 24, 0.5)');
             item = $(ui.draggable).clone();
 
             // Reset the position of the item
