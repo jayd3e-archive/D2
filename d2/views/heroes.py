@@ -10,7 +10,7 @@ class HeroViews(object):
         self.matchdict = request.matchdict
         self.db = request.db
     
-    @view_config(route_name='heroes_add', renderer='heroes/add.mako')
+    #@view_config(route_name='heroes_add', renderer='heroes/add.mako')
     def add(self):
         title = "Add Hero"
 
