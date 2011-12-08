@@ -20,9 +20,9 @@ class HeroModel(Base):
         self.__dict__.update(fields)
 
     def __repr__(self):
-        return "<Hero('%s', '%s', '%s', '%s')>" % (self.id,
-                                                   self.name,
-                                                   self.description,
-                                                   self.image_name,
-                                                   self.default_filename,
-                                                   self.resource_name)
+        return "<Hero('%s', '%s', '%s', '%s', '%s', '%s')>" % (self.id,
+                                                               self.name,
+                                                               self.description,
+                                                               self.image_name,
+                                                               self.default_filename,
+                                                               self.resource_name)

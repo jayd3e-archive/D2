@@ -78,7 +78,7 @@ class GuideViews(object):
             else:
                 items[section] = []
                 items[section].append(guide_item.item)
-
+        
         return {'title':title,
                 'items':items,
                 'guide':guide}

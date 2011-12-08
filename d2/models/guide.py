@@ -19,8 +19,9 @@ class GuideModel(Base):
         self.__dict__.update(fields)
 
     def __repr__(self):
-        return "<Guide('%s', '%s', '%s', '%s', '%s')>" % (self.id, 
-                                                          self.name, 
-                                                          self.created, 
-                                                          self.edited, 
-                                                          self.user_id)
+        return "<Guide('%s', '%s', '%s', '%s', '%s', '%s')>" % (self.id, 
+                                                                self.name, 
+                                                                self.created, 
+                                                                self.edited,
+                                                                self.hero_id,
+                                                                self.user_id)

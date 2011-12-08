@@ -53,7 +53,7 @@ form .guide_name {
 }
 
 .guide_hero_name {
-	width: 238px;
+	width: 239px;
 	float: left;
 	margin-right: 10px;
 }
@@ -152,6 +152,11 @@ form .guide_name {
 	color: #829b6d;
 }
 
+.right_column textarea {
+	margin-top: 5px;
+	margin-bottom: 30px;
+}
+
 .shop_sections {
 	clear: both;
 	display: block;
@@ -165,6 +170,16 @@ form .guide_name {
 }
 
 .guide_section {
+	display: inline-block;
+	min-height: 69px;
+	width: 455px;
+	background-color: rgba(24, 24, 24, 0.5);
+	margin-top: 5px;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+}
+
+.left_column .guide_section {
 	display: inline-block;
 	min-height: 69px;
 	width: 455px;
@@ -235,3 +250,9 @@ form .guide_name {
 .hero:hover {
 	cursor: pointer;
 }
+
+/*
+*
+*	GUIDE VIEW
+*
+*/

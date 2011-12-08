@@ -67,3 +67,15 @@ form .guide_hero_name {
 	font-size: 16px;
 	color: #5E7C88;
 }
+
+/*
+*
+*	GUIDE VIEW
+*
+*/
+
+.help {
+	color: #68493F;
+	font-size: 12px;
+	font-family: Lucida Grande, Arial, Tahoma;
+}

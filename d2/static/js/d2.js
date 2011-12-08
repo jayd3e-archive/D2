@@ -5,7 +5,7 @@ $(window).ready(function() {
             $(this).css('z-index', '100');
 
             // Remove tooltip
-            tooltip = $(this).parent().find(".tooltip");
+            tooltip = $(this).find(".tooltip");
             tooltip.hide();
         },
         stop: function() {

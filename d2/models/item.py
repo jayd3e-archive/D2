@@ -12,6 +12,7 @@ class ItemModel(Base):
     cost = Column(Integer)
     description = Column(String(1000))
     image_name = Column(String(100))
+    resource_name = Column(String(100))
 
     guides = association_proxy('guide_item', 'guide')
     builds = association_proxy('require_items', 'build')
