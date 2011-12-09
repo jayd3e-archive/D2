@@ -10,7 +10,7 @@ class ItemViews(object):
         self.matchdict = request.matchdict
         self.db = request.db
     
-    #@view_config(route_name='items_add', renderer='items/add.mako')
+    @view_config(route_name='items_add', renderer='items/add.mako')
     def add(self):
         title = "Add Item"
 
@@ -22,6 +22,8 @@ class ItemViews(object):
             item = ItemModel()
             item.name = form.name.data
             item.cost = form.cost.data
+            item.category = form.category.data
+            item.resource_name = form.resource_name.data
             item.description = form.description.data
             item.image_name = form.image_name.data
             db.add(item)

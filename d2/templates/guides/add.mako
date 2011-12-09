@@ -40,50 +40,36 @@
                 <ul class="shop_sections">
                     <li onclick="javascript:onBasics()">Basics</li>
                     <li onclick="javascript:onUpgrades()">Upgrades</li>
+                    <li onclick="javascript:onSecretShop()">Secret Shop</li>
                 </ul>
-                % for key, items in basic_items.items():
-                    <div class="basics_section">
-                        <h1>${key}</h1>
-                        <div class="items">
-                            % for item in items:
-                                <div class="item_container">
-                                    <div class="item" id="${item.id}">
-                                        <img src="/static/img/items/${item.image_name}"/>
-                                    </div>
-                                    <div class="tooltip">
-                                        <div class="tipHead">
-                                            ${item.name}
+                <%
+                    tabs = {'basics_section':basic_items, 
+                            'upgrades_section':upgrade_items, 
+                            'secrets_section':secret_items}
+                %>
+                % for class_name, items_set in tabs.items():
+                    % for key, items in items_set.items():
+                        <div class="${class_name}">
+                            <h1>${key}</h1>
+                            <div class="items">
+                                % for item in items:
+                                    <div class="item_container">
+                                        <div class="item" id="${item.id}">
+                                            <img src="/static/img/items/${item.image_name}"/>
                                         </div>
-                                        <div class="tipBody">
-                                            ${'<br />'.join(item.description.splitlines()) | n}
+                                        <div class="tooltip">
+                                            <div class="tipHead">
+                                                ${item.name} <span class="item_cost">(${item.cost})</span>
+                                            </div>
+                                            <div class="tipBody">
+                                                ${'<br />'.join(item.description.splitlines()) | n}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            % endfor
+                                % endfor
+                            </div>
                         </div>
-                    </div>
-                % endfor
-                % for key, items in upgrade_items.items():
-                    <div class="upgrades_section">
-                        <h1>${key}</h1>
-                        <div class="items">
-                            % for item in items:
-                                <div class="item_container">
-                                    <div class="item" id="${item.id}">
-                                        <img src="/static/img/items/${item.image_name}"/>
-                                    </div>
-                                    <div class="tooltip">
-                                        <div class="tipHead">
-                                            ${item.name}
-                                        </div>
-                                        <div class="tipBody">
-                                            ${'<br />'.join(item.description.splitlines()) | n}
-                                        </div>
-                                    </div>
-                                </div>
-                            % endfor
-                        </div>
-                    </div>
+                    % endfor
                 % endfor
             </div>
         </div>

@@ -27,7 +27,7 @@ class GuideViews(object):
         title = "Create Guide"
         sections = ['starting', 'early', 'core', 'luxury']
 
-        heroes = db.query(HeroModel).all()
+        heroes = db.query(HeroModel).order_by(HeroModel.name).all()
 
         items = db.query(ItemModel).all()
         items = self.splitItems(items)
@@ -57,9 +57,11 @@ class GuideViews(object):
                     db.add(guide_item)
             db.flush()
             return HTTPFound('/guides/view/' + str(guide_id))
+        
         return {'title':title,
                 'basic_items':items['basic_items'],
                 'upgrade_items':items['upgrade_items'],
+                'secret_items':items['secret_items'],
                 'form':form}
     
     @view_config(route_name='guides_view', renderer='guides/view.mako')
@@ -87,24 +89,24 @@ class GuideViews(object):
         item_dict = {}
         basic_items = {}
         upgrade_items = {}
+        secret_items = {}
         basic_categories = ['consumables', 'attributes', 'armaments', 'arcane']
         upgrade_categories= ['common', 'support', 'caster', 'weapons', 'armor', 'artifacts']
+        secret_categories= ['secret']
 
-        
         for item in items:
             if item.category in basic_categories:
-                key = item.category.capitalize()
-                if key in basic_items:
-                    basic_items[key].append(item)
-                else:
-                    basic_items[key] = [item]
+                bucket = basic_items
             elif item.category in upgrade_categories:
-                key = item.category.capitalize()
-                if key in upgrade_items:
-                    upgrade_items[key].append(item)
-                else:
-                    upgrade_items[key] = [item]
+                bucket = upgrade_items
+            elif item.category in secret_categories:
+                bucket = secret_items
+
+            key = item.category.capitalize()
+            bucket = bucket.setdefault(key, [])
+            bucket.append(item)
         
         item_dict['basic_items'] = basic_items
         item_dict['upgrade_items'] = upgrade_items
+        item_dict['secret_items'] = secret_items
         return item_dict

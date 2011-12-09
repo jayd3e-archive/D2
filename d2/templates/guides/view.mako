@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="tooltip">
                                         <div class="tipHead">
-                                            ${item.name}
+                                            ${item.name} <span class="item_cost">(${item.cost})</span>
                                         </div>
                                         <div class="tipBody">
                                             ${'<br />'.join(item.description.splitlines()) | n}

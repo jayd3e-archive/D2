@@ -42,18 +42,19 @@ body {
     float: right;
 }
 
-form .name, form .description, form .image_name, form .cost {
+form .item_field, form .item_textarea_field,
+form .hero_field, form .hero_textarea_field {
     width: 700px;
 }
 
 form .guide_name {
-    width: 463px;
+    width: 420px;
     float: left;
     margin-right: 10px;
 }
 
 .guide_hero_name {
-    width: 239px;
+    width: 282px;
     float: left;
     margin-right: 10px;
 }
@@ -155,7 +156,7 @@ form .guide_name {
 .right_column textarea {
     margin-top: 5px;
     margin-bottom: 30px;
-    width: 366px;
+    width: 403px;
     height: 669px;
 }
 
@@ -173,8 +174,8 @@ form .guide_name {
 
 .guide_section {
     display: inline-block;
-    min-height: 69px;
-    width: 455px;
+    min-height: 51px;
+    width: 407px;
     background-color: rgba(24, 24, 24, 0.5);
     margin-top: 5px;
     margin-bottom: 10px;
@@ -183,17 +184,17 @@ form .guide_name {
 
 .left_column .guide_section {
     display: inline-block;
-    min-height: 69px;
-    width: 455px;
+    min-height: 51px;
+    width: 407px;
     background-color: rgba(24, 24, 24, 0.5);
     margin-top: 5px;
     margin-bottom: 10px;
     padding-bottom: 5px;
 }
 
-.basics_section .items, .upgrades_section .items {
+.basics_section .items, .upgrades_section .items, .secrets_section .items {
     display: inline-block;
-    width: 365px;
+    width: 407px;
     background-color: rgba(24, 24, 24, 0.5);
     margin-top: 5px;
     margin-bottom: 10px;
@@ -202,8 +203,8 @@ form .guide_name {
 }
 
 .item {
-    width: 85px;
-    height: 64px;
+    width: 62px;
+    height: 46px;
     margin-left: 5px;
     margin-top: 5px;
     float: left;

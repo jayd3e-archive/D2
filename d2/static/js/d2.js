@@ -28,6 +28,12 @@ $(window).ready(function() {
             item.css('top', '0');
             item.css('left', '0');
 
+            // If a hidden input field already exists, delete it.
+            // This means that the user is moving an item between sections.
+            if(item.children("input").length > 0) {
+                item.children("input").remove();
+            }
+
             // Add hidden field
             item.append('<input type="hidden" name="' + $(this).attr('id') + '" value="' + item.attr('id') + '"/>')
 
@@ -118,14 +124,22 @@ $(window).ready(function() {
 
     // Hide upgrades tab
     $(".upgrades_section").hide();
-});
-
+    $(".secrets_section").hide();
+})
 onBasics = function() {
     $(".upgrades_section").hide();
+    $(".secrets_section").hide();
     $(".basics_section").show();
 }
 
 onUpgrades = function() {
     $(".basics_section").hide();
+    $(".secrets_section").hide();
     $(".upgrades_section").show();
+}
+
+onSecretShop = function() {
+    $(".basics_section").hide();
+    $(".upgrades_section").hide();
+    $(".secrets_section").show();
 }

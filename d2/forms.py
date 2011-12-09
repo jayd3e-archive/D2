@@ -2,7 +2,7 @@ from wtforms import Form, SelectField, TextField, IntegerField, TextAreaField, v
 
 class HeroesAddForm(Form):
     name = TextField('Name',
-                     [validators.Length(min=4, max=50)],
+                     [validators.Length(min=3, max=50)],
                      default="name")
     image_name = TextField('Image Name',
                             [validators.Length(min=4, max=50)],
@@ -20,8 +20,14 @@ class ItemsAddForm(Form):
     image_name = TextField('Image Name',
                             [validators.Length(min=4, max=50)],
                             default="image name")
+    category = TextField('Category',
+                         [validators.Length(min=4, max=50)],
+                         default="category")
+    resource_name = TextField('Resource Name',
+                              [validators.Length(min=4, max=50)],
+                              default="resource name")
     description = TextAreaField('Description',
-                                [validators.Length(min=25, max=1000)],
+                                [validators.Length(min=10, max=1000)],
                                 default="description")
 
 class GuidesAddForm(Form):
