@@ -22,17 +22,23 @@ class HeroModel(Base):
     strength_gain = Column(Integer)
     agility_gain = Column(Integer)
     intelligence_gain = Column(Integer)
-    hp = Column(Integer)
-    mana = Column(Integer)
-    damage = Column(Integer)
+    min_hp = Column(Integer)
+    max_hp = Column(Integer)
+    min_mana = Column(Integer)
+    max_mana = Column(Integer)
+    min_damage = Column(Integer)
+    max_damage = Column(Integer)
     armor = Column(Integer)
     movespeed = Column(Integer)
     attack_range = Column(Integer)
-    attack_animation = Column(Integer)
-    cast_animation = Column(Integer)
+    min_attack_animation = Column(Integer)
+    max_attack_animation = Column(Integer)
+    min_cast_animation = Column(Integer)
+    max_cast_animation = Column(Integer)
     base_attack_time = Column(Integer)
     missile_speed = Column(Integer)
-    site_range = Column(Integer)
+    day_site_range = Column(Integer)
+    night_site_range = Column(Integer)
     resource_name = Column(String(100))
     order = Column(Integer)
 
@@ -46,30 +52,37 @@ class HeroModel(Base):
         return "<Hero('%s', '%s', '%s', '%s', '%s', '%s',\
                '%s', '%s', '%s', '%s', '%s', '%s', '%s',\
                '%s', '%s', '%s', '%s', '%s', '%s', '%s',\
-               '%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % (self.id,
-                                                             self.name,
-                                                             self.description,
-                                                             self.image_name,
-                                                             self.default_filename,
-                                                             self.faction,
-                                                             self.stat,
-                                                             self.roles,
-                                                             self.strength,
-                                                             self.agility,
-                                                             self.intelligence,
-                                                             self.strength_gain,
-                                                             self.agility_gain,
-                                                             self.intelligence_gain,
-                                                             self.hp,
-                                                             self.mana,
-                                                             self.damage,
-                                                             self.armor,
-                                                             self.movespeed,
-                                                             self.attack_range,
-                                                             self.attack_animation,
-                                                             self.cast_animation,
-                                                             self.base_attack_time,
-                                                             self.missile_speed,
-                                                             self.site_range,
-                                                             self.resource_name,
-                                                             self.order)
+               '%s', '%s', '%s', '%s', '%s', '%s', '%s',\
+               '%s', '%s', '%s', '%s', '%s', '%s')>" % (self.id,
+                                                        self.name,
+                                                        self.description,
+                                                        self.image_name,
+                                                        self.default_filename,
+                                                        self.faction,
+                                                        self.stat,
+                                                        self.roles,
+                                                        self.strength,
+                                                        self.agility,
+                                                        self.intelligence,
+                                                        self.strength_gain,
+                                                        self.agility_gain,
+                                                        self.intelligence_gain,
+                                                        self.min_hp,
+                                                        self.max_hp,
+                                                        self.min_mana,
+                                                        self.max_mana,
+                                                        self.min_damage,
+                                                        self.max_damage,
+                                                        self.armor,
+                                                        self.movespeed,
+                                                        self.attack_range,
+                                                        self.min_attack_animation,
+                                                        self.max_attack_animation,
+                                                        self.min_cast_animation,
+                                                        self.max_cast_animation,
+                                                        self.base_attack_time,
+                                                        self.missile_speed,
+                                                        self.day_site_range,
+                                                        self.night_site_range,
+                                                        self.resource_name,
+                                                        self.order)

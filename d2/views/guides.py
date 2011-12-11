@@ -90,19 +90,19 @@ class GuideViews(object):
         basic_items = {}
         upgrade_items = {}
         secret_items = {}
-        basic_categories = ['consumables', 'attributes', 'armaments', 'arcane']
-        upgrade_categories= ['common', 'support', 'caster', 'weapons', 'armor', 'artifacts']
-        secret_categories= ['secret']
+        basic_vendors = ['consumables', 'attributes', 'armaments', 'arcane']
+        upgrade_vendors= ['common', 'support', 'caster', 'weapons', 'armor', 'artifacts']
+        secret_vendors= ['secret']
 
         for item in items:
-            if item.category in basic_categories:
+            if item.vendor in basic_vendors:
                 bucket = basic_items
-            elif item.category in upgrade_categories:
+            elif item.vendor in upgrade_vendors:
                 bucket = upgrade_items
-            elif item.category in secret_categories:
+            elif item.vendor in secret_vendors:
                 bucket = secret_items
 
-            key = item.category.capitalize()
+            key = item.vendor.capitalize()
             bucket = bucket.setdefault(key, [])
             bucket.append(item)
         
