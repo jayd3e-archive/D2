@@ -9,6 +9,7 @@ from d2.models.hero import HeroModel
 from d2.models.item import ItemModel
 from d2.models.guide_item import GuideItemModel
 from d2.models.item_item import ItemItemModel
+from d2.models.skill import SkillModel
 from d2.models.base import initializeBase
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import engine_from_config
@@ -71,6 +72,11 @@ class TestModels(unittest.TestCase):
 
         hero = HeroModel(name="Earthshaker",
                          description="Badass fissure maker.")
+
+        q_skill = SkillModel(name="Bammo",
+                             image_name="bammo.png",
+                             description="This skill owns.")
+        hero.skills.append(q_skill)
         
         guide = GuideModel(name="Super Guide",
                            created=datetime.now(),
@@ -83,6 +89,8 @@ class TestModels(unittest.TestCase):
                         msg="str(HeroModel) must start with '<Hero'")
         self.assertIn(guide, hero.guides)
         self.assertEqual(hero, guide.hero)
+        self.assertEqual(hero.skills[0], q_skill)
+        self.assertEqual(q_skill.hero, hero)
 
     def testItemModel(self):
         session = self.Session()
@@ -188,3 +196,22 @@ class TestModels(unittest.TestCase):
         self.assertIn(item3, item2.requires)
         self.assertIn(item2, item1.builds)
         self.assertIn(item2, item3.builds)
+
+    def testSkillModel(self):
+        session = self.Session()
+
+        q_skill = SkillModel(name="Bammo",
+                             image_name="bammo.png",
+                             description="This skill owns.")
+
+        hero = HeroModel(name="Earthshaker",
+                         description="Badass fissure maker.")
+
+        q_skill.hero = hero
+
+        session.add(q_skill)
+        session.flush()
+        self.assertTrue(str(q_skill).startswith('<Skill'),
+                        msg="str(SkillModel) must start with '<Skill'")
+        self.assertEqual(hero.skills[0], q_skill)
+        self.assertEqual(q_skill.hero, hero)
