@@ -2,6 +2,7 @@ import os
 import base64
 import unittest
 from datetime import datetime
+from d2.models.base import Base as D2Base
 from d2.models.user import UserModel
 from d2.models.guide import GuideModel
 from d2.models.comment import CommentModel
@@ -78,6 +79,7 @@ settings_d2 = {'sqlalchemy.url' : 'postgresql+psycopg2://jayd3e:sharp7&7@localho
         
 engine_d2ref = engine_from_config(settings_d2ref, 'sqlalchemy.')
 engine_d2 = engine_from_config(settings_d2, 'sqlalchemy.')
+initializeBase(engine_d2)
 
 SessionD2Ref = sessionmaker(bind=engine_d2ref)
 SessionD2 = sessionmaker(bind=engine_d2)
@@ -119,7 +121,7 @@ session_d2 = SessionD2()
 heroes = session_d2ref.query(D2RefHeroModel).all()
 for hero in heroes:
     hero_exists = session_d2.query(HeroModel).filter_by(name=hero.common_name).first()
-    
+
     strength = hero.strength.split('+')
     agility = hero.agility.split('+')
     intelligence = hero.intelligence.split('+')
@@ -132,7 +134,10 @@ for hero in heroes:
     damage = hero.damage.split('-')
     min_damage = damage[0]
     max_damage = damage[1]
-    attack_range = hero.attackRange.split(' ')[0]
+    if ' ' in hero.attackRange:
+        attack_range = hero.attackRange.split(' ')[0]
+    elif '(' in hero.attackRange:
+        attack_range = hero.attackRange.split('(')[0]
     attack_anim = hero.attackAnimation.split('/')
     min_attack_animation = attack_anim[0]
     max_attack_animation = attack_anim[1]
@@ -148,7 +153,6 @@ for hero in heroes:
     site_range = hero.siteRange.split('/')
     day_site_range = site_range[0]
     night_site_range = site_range[1]
-    import pdb;pdb.set_trace()
     if not hero_exists:
         new_hero = HeroModel(faction=hero.faction,
                              stat=hero.stat,
@@ -177,6 +181,7 @@ for hero in heroes:
                              night_site_range=int(night_site_range),
                              order=int(hero.sort)
                              )
+        print("Hero doesn't exist: " + hero.common_name)
         session_d2.add(new_hero)
     else:
         hero_exists.faction=hero.faction
@@ -200,11 +205,12 @@ for hero in heroes:
         hero_exists.max_attack_animation=float(max_attack_animation)
         hero_exists.min_cast_animation=float(min_cast_animation)
         hero_exists.max_cast_animation=float(max_cast_animation)
-        hero_exists.base_attack_time=float(baseAttackTime)
+        hero_exists.base_attack_time=float(hero.baseAttackTime)
         hero_exists.missile_speed=int(missile_speed)
         hero_exists.day_site_range=int(day_site_range)
         hero_exists.night_site_range=int(night_site_range)
         hero_exists.order=int(hero.sort)
+    session_d2.flush()
 
 # List of item fields to copy over:
 # hon_name = Column(String(100))
@@ -213,8 +219,11 @@ for hero in heroes:
 items = session_d2ref.query(D2RefItemModel).all()
 for item in items:
     item_exists = session_d2.query(ItemModel).filter_by(name=item.name).first()
+    if item_exists:
+        item_exists.hon_name = item.hon
+        item_exists.order = item.sort
+    else:
+        print("This item didn't get transfered: " + item.name)
+    session_d2.flush()
 
-    item_exists.hon_name = item.hon_name
-    item_exists.order = item.sort
-
-#session_d2.commit()
+session_d2.commit()
