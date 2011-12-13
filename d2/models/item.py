@@ -19,7 +19,7 @@ class ItemModel(Base):
     guides = association_proxy('guide_item', 'guide')
     builds = association_proxy('require_items', 'build')
     requires = association_proxy('build_items', 'require')
-
+    
     def __init__(self, **fields):
         self.__dict__.update(fields)
 
