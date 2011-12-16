@@ -6,11 +6,10 @@ from d2.models.hero import HeroModel
 class HeroViews(object):
     def __init__(self, request):
         self.request = request
-        self.here = request.environ['PATH_INFO']
         self.matchdict = request.matchdict
         self.db = request.db
     
-    @view_config(route_name='heroes_add', renderer='heroes/add.mako')
+    @view_config(route_name='heroes_add', renderer='heroes/add.mako', permission='admin')
     def add(self):
         title = "Add Hero"
 
@@ -26,7 +25,6 @@ class HeroViews(object):
             db.add(hero)
             db.flush()
             return HTTPFound(location='/heroes/add')
-        return {'here':self.here,
-                'title':title,
+        return {'title':title,
                 'form':form}
         

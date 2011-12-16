@@ -10,7 +10,6 @@ from d2.forms import GuidesAddForm
 class GuideViews(object):
     def __init__(self, request):
         self.request = request
-        self.here = request.environ['PATH_INFO']
         self.matchdict = request.matchdict
         self.db = request.db
     

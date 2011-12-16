@@ -25,7 +25,7 @@ class TestModels(unittest.TestCase):
     def testUserModel(self):
         session = self.Session()
 
-        user = UserModel(username="jayd3e")
+        user = UserModel(user_id="jayd3e")
         guide = GuideModel(name="Super Guide",
                            created=datetime.now(),
                            edited=datetime.now())
@@ -51,7 +51,7 @@ class TestModels(unittest.TestCase):
                            created=datetime.now(),
                            edited=datetime.now())
         
-        user = UserModel(username="jayd3e")
+        user = UserModel(user_id="jayd3e")
         guide.author = user
 
         hero = HeroModel(name="Earthshaker",
@@ -109,7 +109,7 @@ class TestModels(unittest.TestCase):
         comment = CommentModel(body="U Suck",
                                created=datetime.now(),
                                edited=datetime.now())
-        user = UserModel(username="jayd3e")
+        user = UserModel(user_id="jayd3e")
         comment.author = user
         
         session.add(comment)

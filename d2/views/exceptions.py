@@ -14,4 +14,4 @@ def notFound(self, request):
              renderer='exceptions/forbidden.mako', 
              permission='__no_permission_required__')
 def forbidden(self, request):
-    return HTTPFound(location='/auth/login')
+    return HTTPFound(location='/login')

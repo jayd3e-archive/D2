@@ -1,7 +1,6 @@
 <%inherit file="../layouts/base.mako"/>
 
 <%def name="body()">
-    <script type="text/javascript" src="/static/js/d2.js"></script>
     <form id="guide_form" method="POST" action="">
         <div class="top">
             <div class="guide_info">

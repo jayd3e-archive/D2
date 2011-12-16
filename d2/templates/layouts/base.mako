@@ -1,4 +1,5 @@
 <%namespace name="header" file="header.mako"/>
+<%namespace name="banner" file="banner.mako"/>
 <%namespace name="footer" file="footer.mako"/>
 <!-- base.mako --> 
 <!DOCTYPE html>
@@ -14,11 +15,16 @@
         <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
         <script type="text/javascript" src="/static/js/jquery-ui-1.8.16.custom.min.js"></script>
         <script type="text/javascript" src="/static/js/chosen.jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/d2.js"></script>
     </head>
     <body>
-        <div css="header">
+        <div class="header">
             <div class="centered">
-                ${header.header(here)}
+                % if here == '/':
+                    ${banner.banner(here)}
+                % else:
+                    ${header.header(here)}
+                % endif
             </div>
         </div>
         <div class="body">

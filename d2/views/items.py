@@ -6,11 +6,11 @@ from d2.models.item import ItemModel
 class ItemViews(object):
     def __init__(self, request):
         self.request = request
-        self.here = request.environ['PATH_INFO']
         self.matchdict = request.matchdict
         self.db = request.db
+        self.user = request.user
     
-    @view_config(route_name='items_add', renderer='items/add.mako')
+    @view_config(route_name='items_add', renderer='items/add.mako', permission='admin')
     def add(self):
         title = "Add Item"
 
@@ -29,7 +29,6 @@ class ItemViews(object):
             db.add(item)
             db.flush()
             return HTTPFound(location='/items/add')
-        return {'here':self.here,
-                'title':title,
+        return {'title':title,
                 'form':form}
         

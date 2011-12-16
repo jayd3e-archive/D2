@@ -1,5 +1,5 @@
-h1, div {
-    font-family: 'GoudyTrajanRegular', Tahoma;
+h1, div, input {
+    font-family: Arial, Verdana, Tahoma;
     font-weight: 300;
 }
 
@@ -21,6 +21,10 @@ form .guide_name {
 
 form .guide_hero_name {
     font-size: 22pt;
+}
+
+.account a {
+    color: #FFF;
 }
 
 .guide_title {
@@ -79,7 +83,18 @@ form .guide_hero_name {
 */
 
 .help {
-    color: #68493F;
+    color: #B22E2F;
     font-size: 12px;
     font-family: Lucida Grande, Arial, Tahoma;
+}
+
+/*
+*
+*   LOGIN/REGISTER
+*
+*/
+
+form .login_text {
+    font-size: 22px;
+    color: #464646;
 }

@@ -1,4 +1,4 @@
-<%def name="header(here)">
+<%def name="banner(here)">
     <a class="logo" href="/">
     </a>
 </%def>

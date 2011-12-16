@@ -258,3 +258,33 @@ form .guide_name {
 *    GUIDE VIEW
 *
 */
+
+
+/*
+*
+*    LOGIN/REGISTER
+*
+*/
+.login_register {
+    width: 540px;
+    min-height: 200px;
+    margin: 0 auto;
+}
+
+.login {
+    width: 250px;
+    float: left;
+    min-height: 200px;
+    padding: 10px;
+}
+
+.register {
+    width: 250px;
+    float: left;
+    min-height: 200px;
+    padding: 10px;
+}
+
+form .login_text {
+    width: 250px;
+}

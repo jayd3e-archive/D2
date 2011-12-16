@@ -16,7 +16,9 @@ requires = ['pyramid',
             'sqlalchemy',
             'mako',
 	    'psycopg2',
-	    'WTForms']
+	    'WTForms',
+	    'alembic',
+            'pyramid_beaker']
 
 setup(name='D2',
       version='0.1dev',
