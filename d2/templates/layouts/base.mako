@@ -12,7 +12,10 @@
         <link rel="stylesheet" type="text/css" href="/static/css/fonts/trajan/stylesheet.css" charset="utf-8" />
 
         <!-- JavaScript -->
-        <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
+        <script>
+            here = "${here}";
+        </script>
+        <script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="/static/js/jquery-ui-1.8.16.custom.min.js"></script>
         <script type="text/javascript" src="/static/js/chosen.jquery.min.js"></script>
         <script type="text/javascript" src="/static/js/d2.js"></script>
@@ -20,7 +23,7 @@
     <body>
         <div class="header">
             <div class="centered">
-                % if here == '/':
+                % if here == '/' or here == '/login':
                     ${banner.banner(here)}
                 % else:
                     ${header.header(here)}

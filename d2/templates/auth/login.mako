@@ -1,4 +1,4 @@
-<%inherit file="../layouts/index_base.mako"/>
+<%inherit file="../layouts/base.mako"/>
 
 <%def name="error(form, field)">
     % if field in form.errors:

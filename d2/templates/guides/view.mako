@@ -2,7 +2,6 @@
 <%namespace name="guide_layout" file="guide_layout.mako"/>
 
 <%def name="body()">
-    <script type="text/javascript" src="/static/js/d2_view.js"></script>
     <div id="guide">
         <%
             from collections import OrderedDict
