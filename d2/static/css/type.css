@@ -27,9 +27,14 @@ form .guide_hero_name {
     color: #FFF;
 }
 
-.guide_title {
+.guide_title, .guide .guide_title {
     font-size: 22px;
     color: #5E7C88;
+    text-decoration: none;
+}
+
+.guide {
+    padding-bottom: 5px;
 }
 
 .guide_submit {
@@ -48,7 +53,7 @@ form .guide_hero_name {
 
 .create_guide a {
     font-family: 'GoudyTrajanRegular', Palatino;
-    font-size: 24px;
+    font-size: 16px;
     color: #e0e4dd;
     text-decoration: none;
 }
@@ -74,6 +79,20 @@ form .guide_hero_name {
 
 .tooltip .tipHead .item_cost {
     color: #FEB41C;
+}
+
+.guides_list h1 {
+    font-size: 22px;
+}
+
+.guide .guide_created_by {
+    font-size: 14px;
+    color: #232323;
+}
+
+.guide .guide_created_by a {
+    font-size: 14px;
+    color: #829B6D;
 }
 
 /*

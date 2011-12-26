@@ -5,6 +5,10 @@ body {
     width: 100%;
 }
 
+.clear {
+    clear: both;
+}
+
 .centered {
     margin: 0 auto;
     width: 845px;
@@ -74,26 +78,31 @@ form .guide_name {
 .create_guide {
     background-image: url("../img/create.png");
     background-repeat: no-repeat;
-    width: 300px;
-    height: 69px;
+    width: 185px;
+    height: 30px;
     border: 0;
     outline: 0;
-    margin: 0 auto;
+    float: right;
 }
 
 .create_guide a {
-    padding-left: 50px;
-    padding-top: 22px;
+    padding-left: 25px;
+    padding-top: 8px;
     display: block;
 }
 
 .create_guide:hover {
     cursor: pointer;
-    background-position: -300px 0px;
+    background-position: -185px 0px;
 }
 
 .submit {
     padding: 10px 25px;
+}
+
+.guides_list h1 {
+    padding-top: 3px;
+    float: left;
 }
 
 /*

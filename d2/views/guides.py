@@ -16,8 +16,18 @@ class GuideViews(object):
     @view_config(route_name='root', renderer='guides/index.mako') 
     @view_config(route_name='guides_root', renderer='guides/index.mako')
     def index(self):
+        db = self.db
+        request = self.request
         title = "D2"
-        return {'title':title}
+
+        # Paginator values
+        page = self.matchdict.get('page', 0)
+        guides_per_page = 50
+        
+        guides = db.query(GuideModel).order_by(GuideModel.created).slice((guides_per_page * page) + 1, 
+                                                                         guides_per_page * (page + 1)).all()
+        return {'title':title,
+                'guides':guides}
 
     @view_config(route_name='guides_add', renderer='guides/add.mako')
     def add(self):
