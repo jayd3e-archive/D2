@@ -11,9 +11,10 @@
             sections['Core Items'] = 'core'
             sections['Luxury Items'] = 'luxury'
         %>
+        <img class="hero_image" src="/static/img/heroes/${guide.hero.image_name}" />
         <h1 class="guide_view_title">${guide.name} 
             <span class="created_by">by 
-                <a href="/profile/${guide.author.username}">
+                <a href="/users/${guide.author.username}">
                     ${guide.author.username}
                 </a>
             </span>
@@ -55,7 +56,10 @@
                     Instructions
                 </div>
                 <div class="tipBody">
-                    Copy and paste this text into a file named after what appears in the first line of the config file, should look like: "default_venomancer.txt".  Then save that file in "Steam/steamapps/ common/dota 2 beta/dota/ itembuilds/".
+                    <ol>
+                        <li>1. Press the download button, or copy and paste this text into a file named after what appears in the first line of the config file, should look like: "default_venomancer.txt".</li>
+                        <li>2. Save that file in "Steam/steamapps/common/dota 2 beta/dota/itembuilds/".</li>
+                    </ol>
                 </div>
             </div>
             <textarea wrap="off">

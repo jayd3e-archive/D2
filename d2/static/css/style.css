@@ -11,14 +11,20 @@ body {
 
 .centered {
     margin: 0 auto;
-    width: 845px;
 }
 
 .header {
-    width: 100%;
+    width: 845px;
+    margin-top: 3px;
+}
+
+.header_condensed {
+    width: 600px;
+    margin-top: 3px;
 }
 
 .body {
+    width: 845px;
     padding-top: 10px;
     padding-bottom: 30px;
     clear: both;
@@ -26,23 +32,23 @@ body {
 
 .small_logo {
     background-image: url("../img/small_logo.png");
-    width: 53px;
-    height: 54px;
+    width: 39px;
+    height: 40px;
     float: left;
 }
 
 .logo {
     background-image: url("../img/d2_logo.png");
     display: block;
-    width: 390px;
-    height: 200px;
+    width: 234px;
+    height: 120px;
     margin: 0 auto;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 .account {
-    padding-top: 23px;
+    padding-top: 16px;
     float: right;
 }
 
@@ -70,6 +76,8 @@ form .guide_name {
     display: block;
     margin-top: 5px;
     background-image: url("../img/create_submit.png");
+    padding-top: 8px;
+    padding-left: 35px;
 }
 
 .guide_submit:hover {
@@ -101,6 +109,10 @@ form .guide_name {
     padding: 10px 25px;
 }
 
+.guides_list {
+    width: 600px;
+}
+
 .guides_list h1 {
     padding-top: 3px;
     float: left;
@@ -109,6 +121,11 @@ form .guide_name {
 .page_numbers li {
     float: left;
     margin-right: 5px;
+}
+
+.hero_image {
+    float: left; 
+    margin-right: 10px;
 }
 
 /*
@@ -145,10 +162,6 @@ form .guide_name {
     min-height: 500px;
     padding-top: 10px;
     float: left;
-}
-
-#guide {
-    padding-top: 10px;
 }
 
 .fixed {
@@ -273,6 +286,15 @@ form .guide_name {
 *
 */
 
+.guide_view_title {
+    padding-top: 7px;
+    float: left;
+}
+
+.guide {
+    padding-bottom: 10px;
+}
+
 .download {
     background-image: url('/static/img/create.png');
     background-position: left;
@@ -281,6 +303,7 @@ form .guide_name {
     border: 0;
     outline: 0;
     float: right;
+    margin-top: 3px;
 }
 
 .download a {

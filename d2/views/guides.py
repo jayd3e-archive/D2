@@ -62,11 +62,13 @@ class GuideViews(object):
         if request.method == 'POST' and form.validate():
             POST = request.POST
 
+            id = user.id if user else 1
+
             guide = GuideModel(name=POST['name'],
                                created=datetime.now(),
                                edited=datetime.now(),
                                hero_id=POST['hero_name'],
-                               user_id=user.id)
+                               user_id=id)
             db.add(guide)
             db.flush()
             guide_id = guide.id

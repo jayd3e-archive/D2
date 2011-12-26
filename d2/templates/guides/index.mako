@@ -2,7 +2,7 @@
 <%namespace name="paginator" file="../utilities/paginator.mako"/>
 
 <%def name="body()">
-    <div class="guides_list">
+    <div class="guides_list centered">
         <h1>Guides</h1>
         <div class="create_guide">
             <a href="/guides/add">

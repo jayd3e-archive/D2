@@ -21,19 +21,20 @@
         <script type="text/javascript" src="/static/js/d2.js"></script>
     </head>
     <body>
-        <div class="header">
-            <div class="centered">
-                % if here == '/' or here == '/login':
-                    ${banner.banner(here)}
-                % else:
-                    ${header.header(here)}
-                % endif
-            </div>
+        <%
+            header_class = 'header'
+            if here.startswith('/users'):
+                header_class = 'header_condensed'
+        %>
+        <div class="${header_class} centered">
+            % if here == '/' or here == '/login':
+                ${banner.banner(here)}
+            % else:
+                ${header.header(here)}
+            % endif
         </div>
-        <div class="body">
-            <div class="centered">
-                ${self.body()}
-            </div>
+        <div class="body centered">
+            ${self.body()}
         </div>
         <div class="footer">
             ${footer.footer()}
