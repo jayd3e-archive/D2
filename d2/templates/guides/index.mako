@@ -12,7 +12,9 @@
         <div class="clear"></div>
         % for guide in guides:
             <div class="guide">
-                <img class="hero_image" src="/static/img/heroes/${guide.hero.image_name}" />
+                <a href="/guides/view/${guide.id}">
+                    <img class="hero_image" src="/static/img/heroes/${guide.hero.image_name}" />
+                </a>
                 <a class="guide_title" href="/guides/view/${guide.id}">${guide.name}</a>
                 <div class="guide_created_by">
                     Created by 

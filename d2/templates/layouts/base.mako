@@ -23,7 +23,7 @@
     <body>
         <%
             header_class = 'header'
-            if here.startswith('/users'):
+            if here.startswith('/users') or here == '/guides':
                 header_class = 'header_condensed'
         %>
         <div class="${header_class} centered">
