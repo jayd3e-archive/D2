@@ -6,7 +6,8 @@
             <a href="#">${user.username}</a> | 
             <a href="/logout">logout</a>
         % else:
-            <a href="/login">login</a>
+            <a href="/login">login</a> | 
+            <a href="/login">register</a>
         % endif
     </div>
 </%def>

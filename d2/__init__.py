@@ -45,6 +45,7 @@ def main(global_config, **settings):
         config.add_route('guides_root', '/guides')
         config.add_route('login', '/login')
         config.add_route('logout', '/logout')
+        config.add_route('download', '/download/{id}')
         #Handler Action Routes
         config.add_route('guides_add', '/guides/add')
         config.add_route('guides_view', '/guides/view/{id}')

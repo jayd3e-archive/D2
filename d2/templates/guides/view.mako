@@ -11,7 +11,17 @@
             sections['Core Items'] = 'core'
             sections['Luxury Items'] = 'luxury'
         %>
-        <h1 class="guide_title">${guide.name}</h1>
+        <h1 class="guide_view_title">${guide.name} 
+            <span class="created_by">by 
+                <a href="/profile/${guide.author.username}">
+                    ${guide.author.username}
+                </a>
+            </span>
+        </h1>
+        <div class="download">
+            <a href="/download/${guide.id}">Download</a>
+        </div>
+        <div class="clear"></div>
         <div class="left_column_view">
             % for header, id in sections.items():
                 <h1>${header}</h1>
@@ -40,14 +50,14 @@
         </div>
         <div class="right_column">
             <h1>Config <a class="help" href="#">(need help!?)</a></h1>
-              <div class="tooltip">
-                  <div class="tipHead">
+            <div class="tooltip">
+                <div class="tipHead">
                     Instructions
                 </div>
                 <div class="tipBody">
                     Copy and paste this text into a file named after what appears in the first line of the config file, should look like: "default_venomancer.txt".  Then save that file in "Steam/steamapps/ common/dota 2 beta/dota/ itembuilds/".
                 </div>
-              </div>
+            </div>
             <textarea wrap="off">
 ${guide_layout.guide_layout(guide, items) | trim}
             </textarea>

@@ -27,14 +27,18 @@ form .guide_hero_name {
     color: #FFF;
 }
 
-.guide_title, .guide .guide_title {
+.guide_view_title, .guide .guide_title {
     font-size: 22px;
     color: #5E7C88;
     text-decoration: none;
 }
 
+.guide_view_title {
+    float: left;
+}
+
 .guide {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 .guide_submit {
@@ -51,7 +55,7 @@ form .guide_hero_name {
     color: #FFF;
 }
 
-.create_guide a {
+.create_guide a, .download a {
     font-family: 'GoudyTrajanRegular', Palatino;
     font-size: 16px;
     color: #e0e4dd;
@@ -85,12 +89,17 @@ form .guide_hero_name {
     font-size: 22px;
 }
 
-.guide .guide_created_by {
+.guide .hero_image {
+    float: left; 
+    margin-right: 10px;
+}
+
+.guide .guide_created_by, .guide_view_title .created_by {
     font-size: 14px;
     color: #232323;
 }
 
-.guide .guide_created_by a {
+.guide .guide_created_by a, .page_numbers a, .page_numbers span, .guide_view_title .created_by a {
     font-size: 14px;
     color: #829B6D;
 }

@@ -6,6 +6,7 @@ from d2.models.item import ItemModel
 from d2.models.guide import GuideModel
 from d2.models.guide_item import GuideItemModel
 from d2.forms import GuidesAddForm
+from sqlalchemy import func
 
 class GuideViews(object):
     def __init__(self, request):
@@ -19,15 +20,24 @@ class GuideViews(object):
         db = self.db
         request = self.request
         title = "D2"
-
+        
         # Paginator values
-        page = self.matchdict.get('page', 0)
+        page = int(request.GET.get('page', 0))
         guides_per_page = 50
         
         guides = db.query(GuideModel).order_by(GuideModel.created).slice((guides_per_page * page) + 1, 
                                                                          guides_per_page * (page + 1)).all()
+        num_of_guides = db.query(func.count(GuideModel.id)).first()
+        num_of_pages = num_of_guides[0] / guides_per_page
+
+        if num_of_pages < 1:
+            num_of_pages = 1
+        
+        page = page if page is not 0 else page + 1
         return {'title':title,
-                'guides':guides}
+                'guides':guides,
+                'num_of_pages':num_of_pages,
+                'page':page}
 
     @view_config(route_name='guides_add', renderer='guides/add.mako')
     def add(self):
@@ -92,6 +102,26 @@ class GuideViews(object):
         
         return {'title':title,
                 'items':items,
+                'guide':guide}
+
+    @view_config(route_name='download', renderer='guides/download.mako')
+    def download(self):
+        db = self.db
+        request = self.request
+        items = {}
+        
+        id = request.matchdict['id']
+        guide = db.query(GuideModel).filter_by(id=id).first()
+        for guide_item in guide.guide_item:
+            section = guide_item.section
+            if section in items:
+                items[section].append(guide_item.item)
+            else:
+                items[section] = []
+                items[section].append(guide_item.item)
+        
+        request.response.content_disposition = "attachment; filename=" + guide.hero.default_filename
+        return {'items':items,
                 'guide':guide}
     
     def splitItems(self, items):
