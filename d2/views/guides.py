@@ -7,6 +7,7 @@ from d2.models.guide import GuideModel
 from d2.models.guide_item import GuideItemModel
 from d2.forms import GuidesAddForm
 from sqlalchemy import func
+from sqlalchemy.sql.expression import desc
 
 class GuideViews(object):
     def __init__(self, request):
@@ -25,7 +26,7 @@ class GuideViews(object):
         page = int(request.GET.get('page', 0))
         guides_per_page = 50
         
-        guides = db.query(GuideModel).order_by(GuideModel.created).slice((guides_per_page * page) + 1, 
+        guides = db.query(GuideModel).order_by(desc(GuideModel.created)).slice((guides_per_page * page) + 1, 
                                                                          guides_per_page * (page + 1)).all()
         num_of_guides = db.query(func.count(GuideModel.id)).first()
         num_of_pages = num_of_guides[0] / guides_per_page
@@ -43,6 +44,8 @@ class GuideViews(object):
     def add(self):
         db = self.db
         request = self.request
+        user = request.user
+        
         title = "Create Guide"
         sections = ['starting', 'early', 'core', 'luxury']
 
@@ -63,7 +66,7 @@ class GuideViews(object):
                                created=datetime.now(),
                                edited=datetime.now(),
                                hero_id=POST['hero_name'],
-                               user_id=1)
+                               user_id=user.id)
             db.add(guide)
             db.flush()
             guide_id = guide.id

@@ -38,7 +38,7 @@
                     </li>
                 % endfor
             % else:
-                % for i in range(num_of_pages):
+                % for i in range(1, num_of_pages + 1):
                     <li>
                         ${output_page(i, page)}
                     </li>

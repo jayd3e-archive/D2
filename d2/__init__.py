@@ -51,6 +51,7 @@ def main(global_config, **settings):
         config.add_route('guides_view', '/guides/view/{id}')
         config.add_route('heroes_add', '/heroes/add')
         config.add_route('items_add', '/items/add')
+        config.add_route('users_profile', '/users/{username}')
                           
         config.scan('d2')
         return config.make_wsgi_app()
