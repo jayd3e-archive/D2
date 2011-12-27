@@ -40,8 +40,10 @@ class ItemsAddForm(Form):
 
 class GuidesAddForm(Form):
     name = TextField('Name',
-                     [validators.Length(min=4, max=50)],
-                     default="Name Of Guide")
+                     [validators.Length(min=4, max=50),
+                      validators.required(),
+                      validators.NoneOf(['Name Of Guide'])],
+                     default='Name Of Guide')
     hero_name = SelectField('Hero Name',
                             [validators.required()],
                             coerce=int)

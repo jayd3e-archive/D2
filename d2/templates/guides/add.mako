@@ -10,6 +10,15 @@
                     Create
                 </a>
             </div>
+            <div class="guide_errors">
+                <ul>
+                    % for error in form.name.errors:
+                    <li>
+                        ${error}
+                    </li>
+                    % endfor
+                </ul>
+            </div>
             <%doc>
                 ## Possibly add this back in at some point, once I have access to all of the
                 ## hero images

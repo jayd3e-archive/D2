@@ -95,7 +95,7 @@ form .guide_hero_name {
 *
 */
 
-.help {
+.help, .guide_errors ul li {
     color: #B22E2F;
     font-size: 12px;
     font-family: Lucida Grande, Arial, Tahoma;
