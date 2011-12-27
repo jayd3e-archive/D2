@@ -23,18 +23,17 @@ class GuideViews(object):
         title = "D2"
         
         # Paginator values
-        page = int(request.GET.get('page', 0))
+        page = int(request.GET.get('page', 1))
         guides_per_page = 50
-        
-        guides = db.query(GuideModel).order_by(desc(GuideModel.created)).slice((guides_per_page * page) + 1, 
-                                                                         guides_per_page * (page + 1)).all()
+
+        guides = db.query(GuideModel).order_by(desc(GuideModel.created)).slice(guides_per_page * (page - 1), 
+                                                                               guides_per_page * page).all()
         num_of_guides = db.query(func.count(GuideModel.id)).first()
         num_of_pages = num_of_guides[0] / guides_per_page
 
         if num_of_pages < 1:
             num_of_pages = 1
         
-        page = page if page is not 0 else page + 1
         return {'title':title,
                 'guides':guides,
                 'num_of_pages':num_of_pages,
