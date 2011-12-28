@@ -23,6 +23,9 @@
             <a href="/download/${guide.id}">Download</a>
         </div>
         <div class="clear"></div>
+        % if guide.description:
+            <div class="description">${guide.description}</div>
+        % endif
         <div class="left_column_view">
             % for header, id in sections.items():
                 <h1>${header}</h1>

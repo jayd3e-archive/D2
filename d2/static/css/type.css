@@ -95,8 +95,20 @@ form .guide_hero_name {
 *
 */
 
-.help, .guide_errors ul li {
+.help, .guide_info_errors ul li {
     color: #B22E2F;
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, Tahoma;
+}
+
+.guide_description textarea {
+    color: #464646;
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, Tahoma;
+}
+
+.description {
+    color: #829B6D;
     font-size: 12px;
     font-family: Lucida Grande, Arial, Tahoma;
 }

@@ -8,6 +8,7 @@ class GuideModel(Base):
     
     id = Column(Integer, primary_key=True)
     name = Column(String(100))
+    description = Column(String(20000))
     created = Column(DateTime)
     edited = Column(DateTime)
     hero_id = Column(Integer, ForeignKey('heroes.id'))

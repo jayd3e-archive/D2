@@ -10,7 +10,7 @@
                     Create
                 </a>
             </div>
-            <div class="guide_errors">
+            <div class="guide_info_errors">
                 <ul>
                     % for error in form.name.errors:
                     <li>
@@ -18,6 +18,9 @@
                     </li>
                     % endfor
                 </ul>
+            </div>
+            <div class="guide_description">
+                ${form.description()}
             </div>
             <%doc>
                 ## Possibly add this back in at some point, once I have access to all of the
@@ -30,6 +33,15 @@
                     % endfor
                 </div>
             </%doc>
+            <div class="guide_info_errors">
+                <ul>
+                    % for error in form.description.errors:
+                    <li>
+                        ${error}
+                    </li>
+                    % endfor
+                </ul>
+            </div>
         </div>
         <div class="bottom">
             <div class="left_column">

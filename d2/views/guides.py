@@ -62,8 +62,9 @@ class GuideViews(object):
             POST = request.POST
 
             id = user.id if user else 1
-
+            
             guide = GuideModel(name=POST['name'],
+                               description=POST['description'],
                                created=datetime.now(),
                                edited=datetime.now(),
                                hero_id=POST['hero_name'],

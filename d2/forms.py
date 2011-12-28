@@ -47,6 +47,9 @@ class GuidesAddForm(Form):
     hero_name = SelectField('Hero Name',
                             [validators.required()],
                             coerce=int)
+    description = TextAreaField('Description',
+                                [validators.Length(min=10, max=1000)],
+                                default="Description")
 
 class LoginForm(Form):
     username = TextField('Username',
